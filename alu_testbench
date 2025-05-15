@@ -1,0 +1,165 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010D9E80 .scope module, "ALU_tb" "ALU_tb" 2 3;
+ .timescale -9 -12;
+v01110128_0 .var "A", 31 0;
+v01110968_0 .var "ALU_control", 3 0;
+v0110FEC0_0 .var "B", 31 0;
+v0110FFC8_0 .net "carry", 0 0, L_01140EC8; 1 drivers
+v0110FF18_0 .net "negative", 0 0, L_01110BD0; 1 drivers
+v011106A8_0 .net "result", 31 0, L_010DCB68; 1 drivers
+v011104F0_0 .net "zero", 0 0, L_01110D30; 1 drivers
+S_010D9F08 .scope module, "ALU" "ALU" 2 10, 3 1, S_010D9E80;
+ .timescale 0 0;
+L_010DCA18 .functor OR 32, v01110128_0, v0110FEC0_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_010DCB30 .functor AND 32, v01110128_0, v0110FEC0_0, C4<11111111111111111111111111111111>, C4<11111111111111111111111111111111>;
+L_010DCD28 .functor XNOR 1, L_01110808, C4<0>, C4<0>, C4<0>;
+L_010DCBD8 .functor NOT 32, v0110FEC0_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_01111590 .functor XOR 32, v01110128_0, v0110FEC0_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_01111280 .functor NOT 32, v01110128_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_011110C0 .functor OR 1, L_011102E0, L_01110860, C4<0>, C4<0>;
+L_010DCB68 .functor BUFZ 32, L_01110B78, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_01141088 .functor NOT 1, L_01110C28, C4<0>, C4<0>, C4<0>;
+L_01140E20 .functor AND 1, L_01110078, L_01141088, C4<1>, C4<1>;
+L_01140F00 .functor NOT 1, L_011109C0, C4<0>, C4<0>, C4<0>;
+L_01140DB0 .functor AND 1, L_01140E20, L_01140F00, C4<1>, C4<1>;
+L_01140EC8 .functor AND 1, L_01140DB0, L_01110CD8, C4<1>, C4<1>;
+L_01140FA8 .functor NOT 32, L_010DCB68, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v01103A58_0 .net "A", 31 0, v01110128_0; 1 drivers
+v01103B08_0 .net "ALU_control", 3 0, v01110968_0; 1 drivers
+v0110F7A8_0 .net "AandB", 31 0, L_010DCB30; 1 drivers
+v0110F0C8_0 .net "AorB", 31 0, L_010DCA18; 1 drivers
+v0110F070_0 .net "AxorB", 31 0, L_01111590; 1 drivers
+v0110F1D0_0 .net "B", 31 0, v0110FEC0_0; 1 drivers
+v0110F5F0_0 .net "Sum", 31 0, L_011105F8; 1 drivers
+v0110F750_0 .net *"_s10", 31 0, L_010DCBD8; 1 drivers
+v0110F648_0 .net *"_s17", 32 0, L_011101D8; 1 drivers
+v0110F490_0 .net *"_s20", 0 0, C4<0>; 1 drivers
+v0110F330_0 .net *"_s21", 32 0, L_01110548; 1 drivers
+v0110F2D8_0 .net *"_s24", 0 0, C4<0>; 1 drivers
+v0110F6A0_0 .net *"_s25", 32 0, L_01110230; 1 drivers
+v0110F6F8_0 .net *"_s28", 0 0, L_01110288; 1 drivers
+v0110EFC0_0 .net *"_s29", 32 0, L_01110700; 1 drivers
+v0110F388_0 .net *"_s32", 31 0, C4<00000000000000000000000000000000>; 1 drivers
+v0110F960_0 .net *"_s33", 32 0, L_01110758; 1 drivers
+v0110F540_0 .net *"_s39", 3 0, C4<0001>; 1 drivers
+v0110F178_0 .net *"_s41", 0 0, L_011102E0; 1 drivers
+v0110F3E0_0 .net *"_s43", 3 0, C4<1001>; 1 drivers
+v0110EF68_0 .net *"_s45", 0 0, L_01110860; 1 drivers
+v0110F438_0 .net *"_s47", 0 0, L_011110C0; 1 drivers
+v0110F800_0 .net *"_s49", 3 0, C4<0100>; 1 drivers
+v0110F858_0 .net *"_s5", 0 0, L_01110808; 1 drivers
+v0110EEB8_0 .net *"_s51", 0 0, L_01110338; 1 drivers
+v0110F598_0 .net *"_s53", 3 0, C4<0011>; 1 drivers
+v0110EF10_0 .net *"_s55", 0 0, L_01110390; 1 drivers
+v0110F8B0_0 .net *"_s57", 3 0, C4<0101>; 1 drivers
+v0110F4E8_0 .net *"_s59", 0 0, L_011103E8; 1 drivers
+v0110F018_0 .net *"_s6", 0 0, C4<0>; 1 drivers
+v0110F908_0 .net *"_s61", 3 0, C4<0101>; 1 drivers
+v0110F228_0 .net *"_s63", 0 0, L_011108B8; 1 drivers
+v0110F120_0 .net *"_s65", 31 0, C4<00000000000000000000000000000000>; 1 drivers
+v0110F280_0 .net *"_s67", 31 0, L_01110440; 1 drivers
+v0110FD28_0 .net *"_s69", 31 0, L_01110498; 1 drivers
+v0110FB70_0 .net *"_s71", 31 0, L_01110910; 1 drivers
+v0110FBC8_0 .net *"_s73", 31 0, L_01110C80; 1 drivers
+v0110FC20_0 .net *"_s8", 0 0, L_010DCD28; 1 drivers
+v0110FDD8_0 .net *"_s80", 0 0, L_01110C28; 1 drivers
+v0110F9B8_0 .net *"_s81", 0 0, L_01141088; 1 drivers
+v0110FA10_0 .net *"_s83", 0 0, L_01140E20; 1 drivers
+v0110FA68_0 .net *"_s86", 0 0, L_011109C0; 1 drivers
+v0110FC78_0 .net *"_s87", 0 0, L_01140F00; 1 drivers
+v0110FD80_0 .net *"_s89", 0 0, L_01140DB0; 1 drivers
+v0110FAC0_0 .net *"_s92", 0 0, L_01110CD8; 1 drivers
+v0110FCD0_0 .net *"_s97", 31 0, L_01140FA8; 1 drivers
+v0110FE30_0 .alias "carry", 0 0, v0110FFC8_0;
+v0110FB18_0 .net "cout", 0 0, L_01110078; 1 drivers
+v011107B0_0 .net "mux4", 31 0, L_01110020; 1 drivers
+v01110650_0 .net "mux5", 31 0, L_01110B78; 1 drivers
+v0110FF70_0 .alias "negative", 0 0, v0110FF18_0;
+v011100D0_0 .net "not_out", 31 0, L_01111280; 1 drivers
+v01110180_0 .alias "result", 31 0, v011106A8_0;
+v011105A0_0 .alias "zero", 0 0, v011104F0_0;
+L_01110808 .part v01110968_0, 3, 1;
+L_01110020 .functor MUXZ 32, L_010DCBD8, v0110FEC0_0, L_010DCD28, C4<>;
+L_01110078 .part L_01110758, 32, 1;
+L_011105F8 .part L_01110758, 0, 32;
+L_011101D8 .concat [ 32 1 0 0], v01110128_0, C4<0>;
+L_01110548 .concat [ 32 1 0 0], L_01110020, C4<0>;
+L_01110230 .arith/sum 33, L_011101D8, L_01110548;
+L_01110288 .part v01110968_0, 3, 1;
+L_01110700 .concat [ 1 32 0 0], L_01110288, C4<00000000000000000000000000000000>;
+L_01110758 .arith/sum 33, L_01110230, L_01110700;
+L_011102E0 .cmp/eq 4, v01110968_0, C4<0001>;
+L_01110860 .cmp/eq 4, v01110968_0, C4<1001>;
+L_01110338 .cmp/eq 4, v01110968_0, C4<0100>;
+L_01110390 .cmp/eq 4, v01110968_0, C4<0011>;
+L_011103E8 .cmp/eq 4, v01110968_0, C4<0101>;
+L_011108B8 .cmp/eq 4, v01110968_0, C4<0101>;
+L_01110440 .functor MUXZ 32, C4<00000000000000000000000000000000>, L_01111280, L_011108B8, C4<>;
+L_01110498 .functor MUXZ 32, L_01110440, L_01111590, L_011103E8, C4<>;
+L_01110910 .functor MUXZ 32, L_01110498, L_010DCA18, L_01110390, C4<>;
+L_01110C80 .functor MUXZ 32, L_01110910, L_010DCB30, L_01110338, C4<>;
+L_01110B78 .functor MUXZ 32, L_01110C80, L_011105F8, L_011110C0, C4<>;
+L_01110C28 .part v01110968_0, 2, 1;
+L_011109C0 .part v01110968_0, 1, 1;
+L_01110CD8 .part v01110968_0, 0, 1;
+L_01110BD0 .part L_010DCB68, 31, 1;
+L_01110D30 .reduce/and L_01140FA8;
+    .scope S_010D9E80;
+T_0 ;
+    %vpi_call 2 21 "$display", "Time\011A\011\011B\011\011ALU_control\011Result\011Carry\011Negative\011Zero";
+    %vpi_call 2 22 "$monitor", "%0t\011%h\011%h\011%b\011%h\011%b\011%b\011%b", $time, v01110128_0, v0110FEC0_0, v01110968_0, v011106A8_0, v0110FFC8_0, v0110FF18_0, v011104F0_0;
+    %movi 8, 2779096485, 32;
+    %set/v v01110128_0, 8, 32;
+    %movi 8, 1515870810, 32;
+    %set/v v0110FEC0_0, 8, 32;
+    %movi 8, 4, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 2779096485, 32;
+    %set/v v01110128_0, 8, 32;
+    %movi 8, 1515870810, 32;
+    %set/v v0110FEC0_0, 8, 32;
+    %movi 8, 3, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 4294901760, 32;
+    %set/v v01110128_0, 8, 32;
+    %movi 8, 16776960, 32;
+    %set/v v0110FEC0_0, 8, 32;
+    %movi 8, 5, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 65535, 32;
+    %set/v v01110128_0, 8, 32;
+    %set/v v0110FEC0_0, 0, 32;
+    %movi 8, 5, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 15, 32;
+    %set/v v01110128_0, 8, 32;
+    %movi 8, 10, 32;
+    %set/v v0110FEC0_0, 8, 32;
+    %movi 8, 1, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %movi 8, 5, 32;
+    %set/v v01110128_0, 8, 32;
+    %movi 8, 20, 32;
+    %set/v v0110FEC0_0, 8, 32;
+    %movi 8, 9, 4;
+    %set/v v01110968_0, 8, 4;
+    %delay 10000, 0;
+    %vpi_call 2 39 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ALU_tb.v";
+    "ALU.v";

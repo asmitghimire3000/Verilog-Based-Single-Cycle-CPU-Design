@@ -25,9 +25,13 @@ Furthermore, As the processor is of 32-bit and an immediate 32-bit data cant be 
 # Example
 For the instruction :
 LUI R1 000F
+
 LLI R1 000F
+
 LD R2 0004
+
 ADD R3 R2 R1
+
 ST R3 0007
 
 
